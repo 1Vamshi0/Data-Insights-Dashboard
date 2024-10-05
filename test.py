@@ -1,38 +1,35 @@
-from dash import Dash, dash_table, dcc, callback, Output, Input
-import pandas as pd
+import dash
+from dash import dcc, html
 import plotly.express as px
-import dash_mantine_components as dmc
+import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
+akv16 = pd.read_csv('Laptop Sales dataset.csv')
+akv16.drop(['TypeName','ScreenW','ScreenH','Touchscreen','IPSpanel','RetinaDisplay','SecondaryStorage','Unnamed: 22'], axis=1, inplace=True)
+akv16.rename(columns={'Price_euros':'Price'}, inplace=True)
 
-app = Dash()
+# Group by company to get average price
+avg_price_data = akv16.groupby('Company').agg({'Price': 'mean'}).reset_index()
 
-app.layout = dmc.Container([
-    dmc.Title('My First App with Data, Graph, and Controls', size="h3"),
-    dmc.RadioGroup(
-            [dmc.Radio(i, value=i) for i in  ['pop', 'lifeExp', 'gdpPercap']],
-            id='my-dmc-radio-item',
-            value='lifeExp',
-            size="sm"
-        ),
-    dmc.Grid([
-        dmc.Grid([
-            dash_table.DataTable(data=df.to_dict('records'), page_size=12, style_table={'overflowX': 'auto'})
-        ]),
-        dmc.GridCol([
-            dcc.Graph(figure={}, id='graph-placeholder')
-        ]),
-    ]),
+# Create bar chart using Plotly Express
+fig = px.bar(avg_price_data, x='Company', y='Price', 
+             labels={'Price':'Average Price', 'Company':'Company'},
+             title="Average Price of Products by Company",
+             color='Company',
+             template="plotly")
 
-], fluid=True)
+# Initialize Dash app
+app = dash.Dash(__name__)
 
-@callback(
-    Output(component_id='graph-placeholder', component_property='figure'),
-    Input(component_id='my-dmc-radio-item', component_property='value')
-)
-def update_graph(col_chosen):
-    fig = px.histogram(df, x='continent', y=col_chosen, histfunc='avg')
-    return fig
+# Define the layout
+app.layout = html.Div(children=[
+    html.H1(children='Company Product Pricing Dashboard'),
 
+    dcc.Graph(
+        id='price-bar-chart',
+        figure=fig
+    )
+])
+
+# Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True)
