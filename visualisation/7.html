@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"usermeta": {"embedOptions": {"theme": "quartz"}}, "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-b43af11b80b9ebd708e0f0ebfd0369dc"}, "mark": {"type": "area", "color": {"gradient": "linear", "stops": [{"color": "yellow", "offset": 0}, {"color": "red", "offset": 1}]}, "line": {"color": "black"}}, "encoding": {"tooltip": [{"field": "OS", "type": "nominal"}, {"field": "Price", "type": "quantitative"}], "x": {"field": "OS", "title": "Operating System", "type": "nominal"}, "y": {"field": "Price", "title": "Average Price", "type": "quantitative"}}, "height": 400, "title": "Average Laptop Prices by Operating System", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-b43af11b80b9ebd708e0f0ebfd0369dc": [{"OS": "Android", "Price": 434.0}, {"OS": "Chrome OS", "Price": 553.5851851851852}, {"OS": "Linux", "Price": 621.8670689655172}, {"OS": "Mac OS X", "Price": 1262.87125}, {"OS": "Windows 10", "Price": 1180.6840648854961}, {"OS": "Windows 10 S", "Price": 1286.48}, {"OS": "Windows 7", "Price": 1686.6513333333332}, {"OS": "macOS", "Price": 1749.6307692307694}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
