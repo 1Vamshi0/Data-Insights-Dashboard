@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+       <!-- Header -->
+      <header class="header">
+        <h1>Laptop Sales Insights Dashboard</h1>
+      </header>
+      <!-- End Header -->
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-cards">
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>FIELDS<br>(Before sampling)</h3>
+              <span class="material-icons-outlined">more_vert</span>
+            </div>
+            <h1>19</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>RECORDS<br>(Before sampling)</h3>
+              <span class="material-icons-outlined">more_horiz</span>
+            </div>
+            <h1>1275</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>FIELDS<br>(After sampling)</h3>
+              <span class="material-icons-outlined">more_vert</span>
+            </div>
+            <h1>19</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <h3>RECORDS<br>(After sampling)</h3>
+              <span class="material-icons-outlined">more_horiz</span>
+            </div>
+            <h1>500</h1>
+          </div>
+
+        <!-- drop down --> 
+        
+        </div>
+        <div class="select">
+        <div
+            class="selected"
+            data-default="All"
+            data-one="option-1"
+            data-two="option-2"
+            data-three="option-3"
+        >
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 512 512"
+            class="arrow"
+            >
+            <path
+                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+            ></path>
+            </svg>
+        </div>
+        <div class="options">
+            <div title="all">
+            <input id="all" name="option" type="radio" checked="" />
+            <label class="option" for="all" data-txt="All"></label>
+            </div>
+            <div title="option-1">
+            <input id="option-1" name="option" type="radio" />
+            <label class="option" for="option-1" data-txt="option-1"></label>
+            </div>
+            <div title="option-2">
+            <input id="option-2" name="option" type="radio" />
+            <label class="option" for="option-2" data-txt="option-2"></label>
+            </div>
+            <div title="option-3">
+            <input id="option-3" name="option" type="radio" />
+            <label class="option" for="option-3" data-txt="option-3"></label>
+            </div>
+            <div title="option-3">
+            <input id="option-3" name="option" type="radio" />
+            <label class="option" for="option-3" data-txt="option-3"></label>
+            </div>
+            <div title="option-3">
+            <input id="option-3" name="option" type="radio" />
+            <label class="option" for="option-3" data-txt="option-3"></label>
+            </div>
+        </div>
+        </div>
+        <div class="charts">
+
+          <div class="charts-card">
+            <h2 class="chart-title">Top 5 Products</h2>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts-card">
+            <h2 class="chart-title">Distribution of Laptop Brands</h2>
+            <div class="graph-container">
+                 <iframe src="visualisation\1.html"></iframe>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+ 
+  </body>
+</html>
