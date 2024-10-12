@@ -33,58 +33,36 @@ body {
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
 }
 
-.menu-icon {
-  display: none;
-}
 
-/* ---------- SIDEBAR ---------- */
 
-#sidebar {
-  grid-area: sidebar;
-  height: 100%;
-  background-color: #263043;
-  overflow-y: auto;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
-
-.sidebar-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 30px 30px 30px;
-  margin-bottom: 30px;
-}
-
-.sidebar-title > span {
-  display: none;
-}
-
-.sidebar-brand {
-  margin-top: 15px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.sidebar-list {
-  padding: 0;
-  margin-top: 15px;
-  list-style-type: none;
-}
-
-.sidebar-list-item {
-  padding: 20px 20px 20px 20px;
-  font-size: 18px;
-}
-
-.sidebar-list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+/* From Uiverse.io by SteveBloX */ 
+.cardd {
+  box-sizing: border-box;
+  width: 1210px;
+  height: 54px;
+  background: rgb(251, 251, 251);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
   cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
 }
 
-.sidebar-list-item > a {
-  text-decoration: none;
-  color: #9e9ea4;
+.cardd:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.cardd:active {
+  transform: scale(0.95) rotateZ(1.7deg);
 }
 /* From Uiverse.io by 3bdel3ziz-T */ 
 .select {
@@ -102,7 +80,7 @@ body {
   margin-bottom: 3px;
   border-radius: 5px;
   position: relative;
-  z-index: 100000;
+  z-index: 1001;
   font-size: 15px;
   display: flex;
   align-items: center;
@@ -128,15 +106,17 @@ body {
   background-color: #2a2f3b;
   position: absolute;
   top: 100%;
+  left: 0;
   opacity: 0;
   transition: 300ms;
   z-index: 1000;
   width: 100%;
+  margin-top: 3px;
 }
 
 .select:hover > .options {
   opacity: 1;
-  top: 0;
+  top: 100%;
   pointer-events: auto;;
 }
 
@@ -277,6 +257,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 
 /* ---------- MEDIA QUERIES ---------- */
 
