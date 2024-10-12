@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Loading and cleaning dataset
-akv16 = pd.read_csv('Laptop_Sales_dataset.csv')
-akv16.drop(['TypeName', 'ScreenW', 'ScreenH', 'Touchscreen', 'IPSpanel', 'RetinaDisplay', 'SecondaryStorage', 'Unnamed: 22'], axis=1, inplace=True)
+akv16 = pd.read_csv('Laptop Sales dataset.csv')
+akv16.drop(['TypeName', 'ScreenW', 'ScreenH', 'Touchscreen', 'IPSpanel', 'RetinaDisplay', 'SecondaryStorage'], axis=1, inplace=True)
 akv16.rename(columns={'Price_euros': 'Price'}, inplace=True)
 
 # Initialize the app
