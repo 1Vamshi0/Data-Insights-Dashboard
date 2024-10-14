@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"usermeta": {"embedOptions": {"theme": "dark"}}, "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-9f1d96f380578fa26915d4b8e7c20019"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Company", "type": "nominal"}, "tooltip": [{"field": "Company", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Company", "sort": "-y", "title": "Laptop Brands", "type": "nominal"}, "y": {"field": "Count", "title": "Number of Laptops", "type": "quantitative"}}, "height": 200, "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": "Distribution of Laptop Brands", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9f1d96f380578fa26915d4b8e7c20019": [{"Company": "Lenovo", "Count": 281}, {"Company": "Dell", "Count": 274}, {"Company": "HP", "Count": 261}, {"Company": "Asus", "Count": 138}, {"Company": "Acer", "Count": 98}, {"Company": "Toshiba", "Count": 48}, {"Company": "MSI", "Count": 46}, {"Company": "Apple", "Count": 20}, {"Company": "Samsung", "Count": 9}, {"Company": "Mediacom", "Count": 7}, {"Company": "Microsoft", "Count": 6}, {"Company": "Vero", "Count": 4}, {"Company": "Xiaomi", "Count": 4}, {"Company": "Google", "Count": 3}, {"Company": "Chuwi", "Count": 3}, {"Company": "Razer", "Count": 3}, {"Company": "Fujitsu", "Count": 3}, {"Company": "LG", "Count": 3}, {"Company": "Huawei", "Count": 2}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
